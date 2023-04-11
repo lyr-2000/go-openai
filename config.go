@@ -36,6 +36,13 @@ type ClientConfig struct {
 
 	EmptyMessagesLimit uint
 }
+func (r *ClientConfig) WithAuthToken(token string) *ClientConfig{
+	r.authToken = token
+	return r
+}
+func (r *ClientConfig) GetAuthToken() string {
+	return r.authToken
+}
 
 func DefaultConfig(authToken string) ClientConfig {
 	return ClientConfig{
